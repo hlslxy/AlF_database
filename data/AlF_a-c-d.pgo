@@ -1,7 +1,53 @@
 <?xml version="1.0"?>
-<Mixture Version="PGOPHER 10.1.182 04 Dec 2018 20:59  64 bit (fpc 3.3.1 x86_64-Linux)">
+<Mixture Version="PGOPHER 10.1.182 4 Dec 2018 16:58 64 bit Unicode (Delphi 32/32)">
   <Species Name="Species" Jmax="100">
-    <LinearMolecule Name="AlF" nNuclei="2" RSquaredH="True">
+    <LinearMolecule Name="AlF" nNuclei="2" RSquaredH="True" ShowN="False">
+      <LinearManifold Name="A1Pi" Comment="Barrow (1974) 10.1088/0031-8949/10/1-2/008" LimitSearch="True">
+        <Linear Name="v=0" Lambda="Pi">
+          <Parameter Name="Origin" Value="44349.654"/>
+          <Parameter Name="B" Value="0.55368"/>
+          <LinearNucleus Name="Al" Spin="5"/>
+          <LinearNucleus Name="F" Spin="1"/>
+        </Linear>
+        <Linear Name="v=1" Lambda="Pi">
+          <Parameter Name="Origin" Value="45141.489"/>
+          <Parameter Name="B" Value="0.548226"/>
+          <LinearNucleus Name="Al" Spin="5"/>
+          <LinearNucleus Name="F" Spin="1"/>
+        </Linear>
+        <Linear Name="v=2" Lambda="Pi">
+          <Parameter Name="Origin" Value="45920.841"/>
+          <Parameter Name="B" Value="0.542691"/>
+          <LinearNucleus Name="Al" Spin="5"/>
+          <LinearNucleus Name="F" Spin="1"/>
+        </Linear>
+      </LinearManifold>
+      <LinearManifold Name="X1Sigma+" Comment="Zhang (1995) https://doi.org/10.1006/jmsp.1995.1058" LimitSearch="True" Jmin="0" Jmax="1">
+        <Linear Name="v=0">
+          <Parameter Name="Origin" Value="399.9522008"/>
+          <Parameter Name="B" Value="0.5499921733"/>
+          <LinearNucleus Name="Al" Spin="5"/>
+          <LinearNucleus Name="F" Spin="1"/>
+        </Linear>
+        <Linear Name="v=1">
+          <Parameter Name="Origin" Value="1192.640285"/>
+          <Parameter Name="B" Value="0.5450423422"/>
+          <LinearNucleus Name="Al" Spin="5"/>
+          <LinearNucleus Name="F" Spin="1"/>
+        </Linear>
+        <Linear Name="v=2">
+          <Parameter Name="Origin" Value="1975.803716"/>
+          <Parameter Name="B" Value="0.5401269413"/>
+          <LinearNucleus Name="Al" Spin="5"/>
+          <LinearNucleus Name="F" Spin="1"/>
+        </Linear>
+        <Linear Name="v=3">
+          <Parameter Name="Origin" Value="2749.5583"/>
+          <Parameter Name="B" Value="0.5352459703"/>
+          <LinearNucleus Name="Al" Spin="5"/>
+          <LinearNucleus Name="F" Spin="1"/>
+        </Linear>
+      </LinearManifold>
       <LinearManifold Name="c3Sigma+" Initial="True" LimitSearch="True" Jmin="2" Jmax="3">
         <Linear Name="v=0" S="2">
           <Parameter Name="Origin" Value="55423.3475" Float="true"/>
@@ -34,13 +80,23 @@
           <LinearNucleus Name="F" Spin="1"/>
         </Linear>
       </LinearManifold>
-      <LinearManifold Name="a3Pi" LimitSearch="True" Jmin="0" Jmax="1">
+      <LinearManifold Name="b3Sigma+" LimitSearch="True">
+        <Linear Name="v=0" Comment="Values from https://doi.org/10.1080/00268976.2020.1810351; energy referenced to X,v=0,J=0 in this article " S="2">
+          <Parameter Name="Origin" Value="45204.5212"/>
+          <Parameter Name="B" Value="0.559453700466341"/>
+          <Parameter Name="LambdaSS" Value="-0.0306545403487102"/>
+          <Parameter Name="gamma" Value="-0.000300207685678337"/>
+          <LinearNucleus Name="Al" Spin="5"/>
+          <LinearNucleus Name="F" Spin="1"/>
+        </Linear>
+      </LinearManifold>
+      <LinearManifold Name="a3Pi" Initial="True" LimitSearch="True" Jmin="0" Jmax="1">
         <Linear Name="v=0" S="2" Lambda="Pi" RveSelect="e">
           <Parameter Name="Origin" Value="27653.4544305063"/>
           <Parameter Name="Width" Value="0.00280193839966448"/>
           <Parameter Name="B" Value="0.55498345"/>
           <Parameter Name="A" Value="47.384281245"/>
-          <Parameter Name="q" Value="-0.0000980678439882567"/>
+          <Parameter Name="q" Value="-9.80678439882567E-5"/>
           <LinearNucleus Name="Al" Spin="5">
             <Parameter Name="a" Value="0.00376927427573912"/>
           </LinearNucleus>
@@ -63,7 +119,7 @@
           <LinearNucleus Name="F" Spin="1"/>
         </Linear>
       </LinearManifold>
-      <TransitionMoments Bra="a3Pi" Ket="c3Sigma+">
+      <TransitionMoments Colour="Blue" Bra="a3Pi" Ket="c3Sigma+">
         <SphericalTransitionMoment Bra="v=0" Ket="v=0"/>
         <SphericalTransitionMoment Bra="v=0" Ket="v=1">
           <Parameter Name="Strength" Value="0"/>
@@ -75,13 +131,21 @@
           <Parameter Name="Strength" Value="0"/>
         </SphericalTransitionMoment>
       </TransitionMoments>
+      <TransitionMoments Colour="Red" Bra="X1Sigma+" Ket="A1Pi">
+        <SphericalTransitionMoment Bra="v=0" Ket="v=0"/>
+        <SphericalTransitionMoment Bra="v=1" Ket="v=1"/>
+        <SphericalTransitionMoment Bra="v=2" Ket="v=2"/>
+      </TransitionMoments>
+      <TransitionMoments Bra="a3Pi" Ket="b3Sigma+">
+        <SphericalTransitionMoment Bra="v=0" Ket="v=0"/>
+      </TransitionMoments>
     </LinearMolecule>
   </Species>
-  <Parameter Name="Gaussian" Value="0.03"/>
+  <Parameter Name="Gaussian" Value="0.001"/>
   <Parameter Name="Lorentzian" Value="0.00280193839966448"/>
   <Parameter Name="Temperature" Value="900"/>
-  <Parameter Name="Fmin" Value="28259.9242278024"/>
-  <Parameter Name="Fmax" Value="27389.8929159064"/>
-  <FormSettings Name="ConstantsWindow" ActiveObject="LinearMolecule: Species - AlF"/>
+  <Parameter Name="Fmin" Value="-26887.5983544431"/>
+  <Parameter Name="Fmax" Value="62018.350048338"/>
+  <FormSettings Name="ConstantsWindow" ActiveObject="LinearManifold: Species - AlF - b3Sigma+"/>
   <FormSettings Name="StatesWindow" Blocked="True"/>
 </Mixture>

@@ -75,7 +75,7 @@
           <LinearNucleus Name="F" Spin="1"/>
         </Linear>
       </LinearManifold>
-      <LinearManifold Name="c3Sigma+" Initial="True" LimitSearch="True" Jmin="2" Jmax="3">
+      <LinearManifold Name="c3Sigma+" LimitSearch="True" Jmin="2" Jmax="3">
         <Linear Name="v=0" S="2">
           <Parameter Name="Origin" Value="55423.3475" Float="true"/>
           <Parameter Name="B" Value="0.586325"/>
@@ -117,7 +117,7 @@
           <LinearNucleus Name="F" Spin="1"/>
         </Linear>
       </LinearManifold>
-      <LinearManifold Name="a3Pi" Comment="J. Chem. Phys. 156, 124306 (2022); https://doi.org/10.1063/5.0082601" Initial="True" LimitSearch="True" Jmin="0" Jmax="1">
+      <LinearManifold Name="a3Pi" Comment="J. Chem. Phys. 156, 124306 (2022); https://doi.org/10.1063/5.0082601" Initial="True" LimitSearch="True" Jmin="0" Jmax="0">
         <Linear Name="v=0" S="2" Lambda="Pi" RveSelect="e">
           <Parameter Name="Origin" Value="27653.4435205063"/>
           <Parameter Name="Width" Value="0.00280193839966448"/>
@@ -183,6 +183,6 @@
   <Parameter Name="Temperature" Value="900"/>
   <Parameter Name="Fmin" Value="35151.0035204704"/>
   <Parameter Name="Fmax" Value="35466.7448058768"/>
-  <FormSettings Name="ConstantsWindow" ActiveObject="TransitionMoments: Species - AlF - &lt;a3Pi|mu|d3Pi&gt;"/>
+  <FormSettings Name="ConstantsWindow" ActiveObject="LinearManifold: Species - AlF - a3Pi"/>
   <FormSettings Name="StatesWindow" Blocked="True"/>
 </Mixture>
